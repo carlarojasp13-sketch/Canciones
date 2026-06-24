@@ -38,5 +38,9 @@
         <button>Actualizar canción</button>
     </a>
 
+    <a href="/canciones/eliminar/${cancion.id}">
+        <button>Eliminar canción</button>
+    </a>
+
 </body>
 </html>
