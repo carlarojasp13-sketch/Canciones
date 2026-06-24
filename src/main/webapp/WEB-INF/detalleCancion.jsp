@@ -34,5 +34,9 @@
 
     <a href="/canciones">Volver a lista de canciones</a>
 
+    <a href="/canciones/formulario/editar/${cancion.id}">
+        <button>Actualizar canción</button>
+    </a>
+
 </body>
 </html>
