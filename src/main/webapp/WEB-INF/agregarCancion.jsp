@@ -1,65 +1,75 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Agregar canciones</title>
-</head>
-<body>
+        <!DOCTYPE html>
+        <html>
 
-    <h1>Agregar nueva canción</h1>
+        <head>
+            <meta charset="UTF-8">
+            <title>Agregar canciones</title>
+        </head>
 
-    <form:form action="/canciones/procesa/agregar" method="post" modelAttribute="cancion">
+        <body>
 
-        <div>
-            <form:label path="titulo">Título:</form:label>
-            <form:input path="titulo" />
-            <form:errors path="titulo" cssStyle="color:red;" />
-        </div>
+            <h1>Agregar nueva canción</h1>
 
-        <br>
+            <form:form action="/canciones/procesa/agregar" method="post" modelAttribute="cancion">
 
-        <div>
-            <form:label path="artista">Artista:</form:label>
-            <form:input path="artista" />
-            <form:errors path="artista" cssStyle="color:red;" />
-        </div>
+                <div>
+                    <form:label path="titulo">Título:</form:label>
+                    <form:input path="titulo" />
+                    <form:errors path="titulo" cssStyle="color:red;" />
+                </div>
 
-        <br>
+                <br>
 
-        <div>
-            <form:label path="album">Álbum:</form:label>
-            <form:input path="album" />
-            <form:errors path="album" cssStyle="color:red;" />
-        </div>
+                <div>
+                    <label>Artista:</label>
 
-        <br>
+                    <select name="idArtista">
+                        <c:forEach var="artista" items="${artistas}">
+                            <option value="${artista.id}">
+                                ${artista.nombre} ${artista.apellido}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </div>
 
-        <div>
-            <form:label path="genero">Género:</form:label>
-            <form:input path="genero" />
-            <form:errors path="genero" cssStyle="color:red;" />
-        </div>
+                <br>
 
-        <br>
+                <div>
+                    <form:label path="album">Álbum:</form:label>
+                    <form:input path="album" />
+                    <form:errors path="album" cssStyle="color:red;" />
+                </div>
 
-        <div>
-            <form:label path="idioma">Idioma:</form:label>
-            <form:input path="idioma" />
-            <form:errors path="idioma" cssStyle="color:red;" />
-        </div>
+                <br>
 
-        <br>
+                <div>
+                    <form:label path="genero">Género:</form:label>
+                    <form:input path="genero" />
+                    <form:errors path="genero" cssStyle="color:red;" />
+                </div>
 
-        <button type="submit">Agregar nueva canción</button>
+                <br>
 
-    </form:form>
+                <div>
+                    <form:label path="idioma">Idioma:</form:label>
+                    <form:input path="idioma" />
+                    <form:errors path="idioma" cssStyle="color:red;" />
+                </div>
 
-    <br>
+                <br>
 
-    <a href="/canciones">Volver a lista de canciones</a>
+                <button type="submit">Agregar nueva canción</button>
 
-</body>
-</html>
+            </form:form>
+
+            <br>
+
+            <a href="/canciones">Volver a lista de canciones</a>
+
+        </body>
+
+        </html>

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <!DOCTYPE html>
 <html>
@@ -22,9 +23,14 @@
         <br>
 
         <div>
-            <form:label path="artista">Artista:</form:label>
-            <form:input path="artista" />
-            <form:errors path="artista" cssStyle="color:red;" />
+            <label>Artista:</label>
+            <select name="idArtista">
+                <c:forEach var="artista" items="${artistas}">
+                    <option value="${artista.id}" ${cancion.artista != null && cancion.artista.id == artista.id ? 'selected' : ''}>
+                        ${artista.nombre} ${artista.apellido}
+                    </option>
+                </c:forEach>
+            </select>
         </div>
 
         <br>

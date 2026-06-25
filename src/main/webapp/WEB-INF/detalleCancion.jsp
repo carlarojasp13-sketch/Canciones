@@ -16,7 +16,17 @@
 
             <p><strong>ID:</strong> ${cancion.id}</p>
             <p><strong>Título:</strong> ${cancion.titulo}</p>
-            <p><strong>Artista:</strong> ${cancion.artista}</p>
+            <p>
+                <strong>Artista:</strong>
+                <c:choose>
+                    <c:when test="${cancion.artista != null}">
+                        ${cancion.artista.nombre} ${cancion.artista.apellido}
+                    </c:when>
+                    <c:otherwise>
+                        Sin artista
+                    </c:otherwise>
+                </c:choose>
+            </p>
             <p><strong>Álbum:</strong> ${cancion.album}</p>
             <p><strong>Género:</strong> ${cancion.genero}</p>
             <p><strong>Idioma:</strong> ${cancion.idioma}</p>
